@@ -1,0 +1,286 @@
+:root {
+  --primary-color: #6366F1;
+  --secondary-color: #4F46E5;
+  --background-color: #F8FAFC;
+  --text-color: #1E293B;
+  --success-color: #22C55E;
+  --visited-color: #3B82F6;
+  --current-color: #06B6D4;
+  --min-color: #EC4899;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  /* user cannot select any value */
+  user-select: none;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+/* Title CSS */
+.title {
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navbar CSS */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar a, .navbar select {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.navbar a:hover, .navbar select:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar #menu {
+  width: fit-content;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  background-color: var(--primary-color);
+  /* background-color: #1abc9c; */
+  color: white;
+}
+
+.navbar > .icon {
+  display: none;
+}
+
+#menu , #random , #start {
+  cursor: pointer;
+}
+
+/* Center css */
+.center {
+  flex: 1;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 1200px;
+  height: 60vh;
+}
+
+/* STOP HERE */
+
+.array {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  gap: 2px;
+}
+.cell {
+  flex: 1;
+  background-color: var(--secondary-color);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+.cell.done {
+  background-color: var(--success-color);
+}
+.cell.visited {
+  background-color: var(--visited-color);
+}
+.cell.current {
+  background-color: var(--current-color);
+}
+.cell.min {
+  background-color: var(--min-color);
+}
+
+/* Footer CSS */
+.fa.fa-heart {
+  color: #eb2c13;
+}
+footer {
+  text-align: center;
+  font-size: 18px;
+  color: #2c3e50;
+  padding: 1.6em;
+}
+.footer > p:nth-child(1) {
+  margin-bottom: 0.6em;
+}
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff5252;
+  font-size: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .navbar {
+    padding: 0.5rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar a, .navbar select {
+    padding: 0.5rem;
+    min-width: unset;
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .center {
+    width: 95%;
+    height: 50vh;
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+
+  .array {
+    padding: 0.5rem;
+    gap: 1px;
+  }
+
+  .warning-container {
+    top: 60px;
+    padding: 0 1rem;
+  }
+
+  .warning {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .footer > p:nth-child(1) {
+    margin-bottom: 0.4em;
+  }
+
+  .link {
+    font-size: 1rem;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .navbar a, .navbar select {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+
+  .center {
+    height: 40vh;
+  }
+
+  .array {
+    gap: 0.5px;
+  }
+
+  .warning {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Fix orientation change */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .center {
+    height: 35vh;
+  }
+
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar a, .navbar select {
+    width: auto;
+    min-width: 100px;
+  }
+}
+
+/* Add this after the navbar styles */
+.warning-container {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.warning {
+  background-color: #FEF2F2;
+  color: #DC2626;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  max-width: 90%;
+  width: auto;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.warning.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.warning-text {
+  font-weight: 500;
+}
